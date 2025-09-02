@@ -27,7 +27,7 @@ To make managing nodes and workflows easier, install **ComfyUI-Manager** inside 
 
 Just download and run the script from this repo:  
 
-👉 [Download Install ComfyUI Manager.bat](https://github.com/MeroZy/ComfyUI-Workflows/raw/main/Install%20ComfyUI%20Manager.bat)  
+👉 [Download Install ComfyUI Manager.bat](https://github.com/MeroZy-A-K/ComfyUI-Workflows/blob/main/Install%20ComfyUI%20Manager.bat)  
 
 Place this script inside your **ComfyUI** folder:  
 `ComfyUI_windows_portable\Install ComfyUI Manager.bat`  
