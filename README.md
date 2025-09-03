@@ -52,5 +52,6 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | CLIP ViT-H/14 - LAION-2B   | `ComfyUI\models\clip_vision`       | [CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/resolve/main/open_clip_model.safetensors?download=true) |
 | lwmirXL-V1.0fp16 (LoRA)   | `ComfyUI\models\loras`       | [lwmirXL-V1.0fp16.safetensors](https://civitai.com/api/download/models/128403?type=Model&format=SafeTensor) |
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [dAIversityLoRASDXL-PhotoSemiReal.safetensors](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true) |
+| RealVisXL V5 | `ComfyUI\models\checkpoints`  | [Download](https://civitai.com/api/download/models/789646?type=Model&format=SafeTensor&size=full&fp=fp16) <br>Filename: `realvisxlV50_v50Bakedvae.safetensors` |
 
 
