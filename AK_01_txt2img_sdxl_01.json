@@ -1,0 +1,647 @@
+{
+  "id": "3b30e77f-995c-4717-bc55-37774d44f2dd",
+  "revision": 0,
+  "last_node_id": 51,
+  "last_link_id": 83,
+  "nodes": [
+    {
+      "id": 21,
+      "type": "VAEDecode",
+      "pos": [
+        1247.6728515625,
+        2037.6265869140625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 73
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        1510,
+        2040
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        90,
+        2200
+      ],
+      "size": [
+        320,
+        90
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            52,
+            71
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 37,
+      "type": "MarkdownNote",
+      "pos": [
+        90,
+        1828.4395751953125
+      ],
+      "size": [
+        318.70135498046875,
+        141.56045532226562
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 📝 Inputs\n\nYour prompt goes here.  \n\n🔹 **Prompt** : The text you write to describe the image you want.  \n\n🔹 **Clip** : Translates your prompt into a **latent code** that the model can understand and use to generate the image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 36,
+      "type": "MarkdownNote",
+      "pos": [
+        -290,
+        1785.5838623046875
+      ],
+      "size": [
+        310,
+        194.41612243652344
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🧩 Model Loaders  \n\nLoad and use your favorite model and clip.  \n\n🔹 **Checkpoint** : The main model file (like `.safetensors` or `.ckpt`) that defines the style and knowledge of your AI.  \n\n🔹 **Clip** : A text encoder that translates your written prompt into a form the model understands.  \n\n🔹 **VAE (Variational Autoencoder)** : The tool that converts an image into its compressed **latent code** (for the model to work with), and then reverses it back into a final image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 40,
+      "type": "MarkdownNote",
+      "pos": [
+        1510,
+        1892
+      ],
+      "size": [
+        311.29864501953125,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ✅ Output\n\nSave image in ComfyUI/Output/ (folder)."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 46,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -289.5721130371094,
+        2032.309814453125
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            74
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            78
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "realvisxlV50_v50Bakedvae.safetensors"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "LoraLoader",
+      "pos": [
+        -280.305908203125,
+        2192.327392578125
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 74
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            79
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "lwmirXL-V1.0fp16.safetensors",
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "id": 20,
+      "type": "EmptyLatentImage",
+      "pos": [
+        476.2855224609375,
+        2032.1473388671875
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            53,
+            72
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        90,
+        2030
+      ],
+      "size": [
+        320.9094543457031,
+        119.13298797607422
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            66,
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "modern architecture building, glass steel, cityscape, street view, hdr, 8k, sharp detail, archidaily\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 38,
+      "type": "MarkdownNote",
+      "pos": [
+        470,
+        1640
+      ],
+      "size": [
+        1000,
+        330
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ⚙️ Config & Processing  \n\nConfiguration settings for sampling.  \n\n🔹 **Empty Latent Image** : Creates a blank latent canvas (blank image).  \n- **Width / Height** : Defines the resolution of the output image.  \n- **Batch Size** : Number of images generated in one run.  \n\n🔹 **K Sampler** : The core sampling process — it transforms latent noise into a structured image.  \n- **Model** : Connect your Checkpoint (the main model).  \n- **Positive Prompt** : Encoded text from CLIP with what you *want* to see.  \n- **Negative Prompt** : Encoded text from CLIP with what you *don’t* want.  \n- **Latent Image** : Connect from Empty Latent Image.  \n- **Seed** : Controls randomness (same seed = repeatable results).  \n- **Steps** : Number of iterations (more steps = higher quality but slower) **30 to 45 steps is fine**.  \n- **CFG (Classifier-Free Guidance)** : Strength of prompt influence (higher = follow prompt more strictly) \n**7,8 = normal**.  \n- **Sampler Method** : Algorithm used for sampling (Euler, DPM++, etc.) - not highly affact the results.  \n\n🔹 **VAE Decode** : Converts the processed latent back into a final image.  \n- **Samples** : The latent output from K Sampler.  \n- **VAE** : The Variational Autoencoder (defines how latents are converted to pixels).  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 51,
+      "type": "LoraLoader",
+      "pos": [
+        -279.7349548339844,
+        2363.908203125
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 79
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            80
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            82,
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "dAIversityLoRASDXL-PhotoSemiReal.safetensors",
+        0.7500000000000001,
+        0.7500000000000001
+      ]
+    },
+    {
+      "id": 49,
+      "type": "KSampler",
+      "pos": [
+        860,
+        2030
+      ],
+      "size": [
+        360,
+        480
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 80
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 70
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 71
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 72
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        227876866629321,
+        "randomize",
+        30,
+        7,
+        "dpmpp_2m_sde",
+        "karras",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      25,
+      21,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      46,
+      2,
+      21,
+      1,
+      "VAE"
+    ],
+    [
+      70,
+      13,
+      0,
+      49,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      71,
+      42,
+      0,
+      49,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      72,
+      20,
+      0,
+      49,
+      3,
+      "LATENT"
+    ],
+    [
+      73,
+      49,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      74,
+      46,
+      0,
+      50,
+      0,
+      "MODEL"
+    ],
+    [
+      78,
+      46,
+      1,
+      50,
+      1,
+      "CLIP"
+    ],
+    [
+      79,
+      50,
+      0,
+      51,
+      0,
+      "MODEL"
+    ],
+    [
+      80,
+      51,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      81,
+      50,
+      1,
+      51,
+      1,
+      "CLIP"
+    ],
+    [
+      82,
+      51,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      83,
+      51,
+      1,
+      42,
+      0,
+      "CLIP"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.770026468693259,
+      "offset": [
+        397.6658688262971,
+        -1533.6045185348341
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "node_versions": {
+      "efficiency-nodes-comfyui": "3ead4afd120833f3bffdefeca0d6545df8051798",
+      "Comfy_KepListStuff": "97320545f9d40bc5c3f63c614c37fcbe88a7dc3d",
+      "ComfyUI-Inspire-Pack": "962c3fbda0f6e325792e32bac83af33f01b2519a",
+      "ComfyUI-GGUF": "5875c52f59baca3a9372d68c43a3775e21846fe0",
+      "comfy-core": "0.3.13",
+      "rgthree-comfy": "5d771b8b56a343c24a26e8cea1f0c87c3d58102f"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": []
+  },
+  "version": 0.4
+}
