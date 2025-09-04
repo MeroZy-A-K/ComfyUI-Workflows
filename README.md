@@ -53,7 +53,7 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | lwmirXL-V1.0fp16 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/128403?type=Model&format=SafeTensor)<br>`lwmirXL-V1.0fp16.safetensors` |
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [Download](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true)<br>`dAIversityLoRASDXL-PhotoSemiReal.safetensors` |
 
-#### 🖼️ UPSCALER
+#### 🖼️ UPSCALER - You have to choose only one of them
 | Model              | Installation Path                  | Download |
 |--------------------|------------------------------------|----------|
 | RealESRGAN_x4      | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth)<br>`RealESRGAN_x4.pth` |
