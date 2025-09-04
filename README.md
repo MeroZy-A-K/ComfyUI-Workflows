@@ -53,4 +53,12 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | lwmirXL-V1.0fp16 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/128403?type=Model&format=SafeTensor)<br>`lwmirXL-V1.0fp16.safetensors` |
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [Download](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true)<br>`dAIversityLoRASDXL-PhotoSemiReal.safetensors` |
 
+#### 🖼️ UPSCALER
+| Model              | Installation Path                  | Download |
+|--------------------|------------------------------------|----------|
+| RealESRGAN_x4      | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth)<br>`RealESRGAN_x4.pth` |
+| RealESRGAN_x8      | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x8.pth)<br>`RealESRGAN_x8.pth` |
+| 4x-UltraSharp      | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x-UltraSharp.pth)<br>`4x-UltraSharp.pth` |
+| 4x_NMKD-Siax_200k  | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/gemasai/4x_NMKD-Siax_200k/resolve/main/4x_NMKD-Siax_200k.pth)<br>`4x_NMKD-Siax_200k.pth` |
+| ESRGAN_4x          | `ComfyUI\models\upscale_models`    | [Download](https://huggingface.co/Afizi/ESRGAN_4x.pth/resolve/main/ESRGAN_4x.pth)<br>`ESRGAN_4x.pth` |
 
