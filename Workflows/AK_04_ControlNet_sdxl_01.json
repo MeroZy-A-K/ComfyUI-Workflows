@@ -1,0 +1,1152 @@
+{
+  "id": "749a42cc-b71c-4c37-8bcf-6905038d7158",
+  "revision": 0,
+  "last_node_id": 70,
+  "last_link_id": 115,
+  "nodes": [
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        1697.0205078125,
+        2032.55126953125
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "MarkdownNote",
+      "pos": [
+        1697.0205078125,
+        1882.55126953125
+      ],
+      "size": [
+        311.29864501953125,
+        88
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ✅ Output\n\nSave image in ComfyUI/Output/ (folder)."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 50,
+      "type": "LoraLoader",
+      "pos": [
+        -260,
+        2180
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 74
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            79
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "lwmirXL-V1.0fp16.safetensors",
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "id": 36,
+      "type": "MarkdownNote",
+      "pos": [
+        -270,
+        1780
+      ],
+      "size": [
+        310,
+        194.41612243652344
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🧩 Model Loaders  \n\nLoad and use your favorite model and clip.  \n\n🔹 **Checkpoint** : The main model file (like `.safetensors` or `.ckpt`) that defines the style and knowledge of your AI.  \n\n🔹 **Clip** : A text encoder that translates your written prompt into a form the model understands.  \n\n🔹 **VAE (Variational Autoencoder)** : The tool that converts an image into its compressed **latent code** (for the model to work with), and then reverses it back into a final image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 57,
+      "type": "PreviewImage",
+      "pos": [
+        93.46661376953125,
+        3013.8701171875
+      ],
+      "size": [
+        265.1408386230469,
+        258
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 106
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 46,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -270,
+        2020
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            74
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            78
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            69,
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "realvisxlV50_v50Bakedvae.safetensors"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "ControlNetLoader",
+      "pos": [
+        450,
+        2070
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            97
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "controlnet-union-sdxl-1.0-promax.safetensors"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        110,
+        2020
+      ],
+      "size": [
+        320.9094543457031,
+        119.13298797607422
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            66,
+            102
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "modern architecture building, glass steel, cityscape, street view,morning light, hdr, 8k, sharp detail, archidaily\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        110,
+        2190
+      ],
+      "size": [
+        320,
+        90
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            52,
+            103
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 63,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        750,
+        2060
+      ],
+      "size": [
+        270,
+        186
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 102
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 103
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 97
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 98
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            100
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            101
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 51,
+      "type": "LoraLoader",
+      "pos": [
+        -266.88037109375,
+        2355.35107421875
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 79
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            80
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            82,
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "dAIversityLoRASDXL-PhotoSemiReal.safetensors",
+        0.7500000000000001,
+        0.7500000000000001
+      ]
+    },
+    {
+      "id": 62,
+      "type": "MarkdownNote",
+      "pos": [
+        -253.78622436523438,
+        2565.01025390625
+      ],
+      "size": [
+        632.7723999023438,
+        215.9136199951172
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🎛 ControlNet – Preprocessors  \n\nControlNet allows you to guide image generation using external structure (lines, depth, segmentation, etc.).  \nThe **preprocessor** is the tool that extracts this structure from your input image.  \n\n🔹 **LineArt / Canny** : Detects edges and outlines of your image. Useful for keeping shapes, contours, and sketches.  \n\n🔹 **Depth** : Captures depth information (3D structure). Helps the model understand perspective and spatial relationships.  \n\n🔹 **Segmentation** : Splits the image into regions (sky, building, person, etc.). Useful for scene layout and composition.  \n\n🔹 **Resolution** :  \n- **512** → Fast and good for most tasks.  \n- **1024** → More detail, but requires more VRAM.  "
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 21,
+      "type": "VAEDecode",
+      "pos": [
+        1427.0205078125,
+        2032.55126953125
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 73
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        -230,
+        3250
+      ],
+      "size": [
+        270,
+        336
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 87
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            90
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            107
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            108
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.1.4",
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        "<tr><td>Output: </td><td><b>1</b> x <b>666</b> x <b>1024 | 7.80MB</b></td></tr>"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "EmptyLatentImage",
+      "pos": [
+        753.7526245117188,
+        2304.113525390625
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 107
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            109
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 68,
+      "type": "PreviewImage",
+      "pos": [
+        97.33251190185547,
+        3321.50439453125
+      ],
+      "size": [
+        255.11875915527344,
+        332.0804443359375
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 115
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "MarkdownNote",
+      "pos": [
+        1051.81005859375,
+        1592.55126953125
+      ],
+      "size": [
+        605.2103881835938,
+        370.25836181640625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ⚙️ Config & Processing  \n\nConfiguration settings for sampling.  \n\n🔹 **Load Image** : Brings an external image into the workflow.  \n- **Image Path** : Select the image file you want to load.  \n\n🔹 **VAE Encode** : Converts the loaded image into latent space so it can be processed.  \n- **Image** : Connect from Load Image.  \n- **VAE** : The Variational Autoencoder used for encoding the image.  \n\n🔹 **K Sampler** : The core sampling process — it transforms latent noise into a structured image.  \n- **Model** : Connect your Checkpoint (the main model).  \n- **Positive Prompt** : Encoded text from CLIP with what you *want* to see.  \n- **Negative Prompt** : Encoded text from CLIP with what you *don’t* want.  \n- **Latent Image** : Connect from VAE Encode.  \n- **Seed** : Controls randomness (same seed = repeatable results).  \n- **Steps** : Number of iterations (more steps = higher quality but slower) **30 to 45 steps is fine**.  \n- **CFG (Classifier-Free Guidance)** : Strength of prompt influence (higher = follow prompt more strictly) **7–8 = normal**.  \n- **Sampler Method** : Algorithm used for sampling (Euler, DPM++, etc.) – does not drastically affect results.  \n\n🔹 **VAE Decode** : Converts the processed latent back into a final image.  \n- **Samples** : The latent output from K Sampler.  \n- **VAE** : The Variational Autoencoder (defines how latents are converted back into pixels).  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 37,
+      "type": "MarkdownNote",
+      "pos": [
+        110,
+        1820
+      ],
+      "size": [
+        318.70135498046875,
+        141.56045532226562
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 📝 Inputs\n\nYour prompt goes here.  \n\n🔹 **Prompt** : The text you write to describe the image you want.  \n\n🔹 **Clip** : Translates your prompt into a **latent code** that the model can understand and use to generate the image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 69,
+      "type": "MarkdownNote",
+      "pos": [
+        440,
+        1740
+      ],
+      "size": [
+        590,
+        220
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🎛 ControlNet – Apply  \n\nAfter preprocessing, ControlNet is applied to guide image generation.  \n\n🔹 **Load ControlNet** : Loads the ControlNet model you want to use.  \n- Example: **ControlNet SDXL ProMax** (recommended for SDXL workflows).  \n\n🔹 **Apply ControlNet** : Connects your prompt and preprocessed image to the model.  \n- **Positive / Negative** : Prompts from CLIP (what you *want* and *don’t want*).  \n- **ControlNet** : Connected from **Load ControlNet**.  \n- **Image** : The preprocessed image (from Canny, LineArt, Depth, Segmentation, etc.).  \n- **VAE** : The Variational Autoencoder of your main model (to keep outputs consistent).  \n- **Output** : New **Positive / Negative** embeddings with ControlNet guidance applied.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 49,
+      "type": "KSampler",
+      "pos": [
+        1047.0205078125,
+        2022.55126953125
+      ],
+      "size": [
+        360,
+        480
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 80
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 100
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 101
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        852280390963749,
+        "randomize",
+        30,
+        7,
+        "dpmpp_2m_sde",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 56,
+      "type": "AIO_Preprocessor",
+      "pos": [
+        89.63893127441406,
+        2874.881591796875
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            98,
+            115
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_controlnet_aux",
+        "ver": "1.1.0",
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "LineArtPreprocessor",
+        512
+      ]
+    },
+    {
+      "id": 52,
+      "type": "LoadImage",
+      "pos": [
+        -240,
+        2880
+      ],
+      "size": [
+        274.080078125,
+        314.0001220703125
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            87,
+            106
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1874554779371f6a1828d13a6fdb13a4.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      25,
+      21,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      46,
+      2,
+      21,
+      1,
+      "VAE"
+    ],
+    [
+      73,
+      49,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      74,
+      46,
+      0,
+      50,
+      0,
+      "MODEL"
+    ],
+    [
+      78,
+      46,
+      1,
+      50,
+      1,
+      "CLIP"
+    ],
+    [
+      79,
+      50,
+      0,
+      51,
+      0,
+      "MODEL"
+    ],
+    [
+      80,
+      51,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      81,
+      50,
+      1,
+      51,
+      1,
+      "CLIP"
+    ],
+    [
+      82,
+      51,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      83,
+      51,
+      1,
+      42,
+      0,
+      "CLIP"
+    ],
+    [
+      87,
+      52,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      90,
+      54,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      64,
+      0,
+      63,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      98,
+      56,
+      0,
+      63,
+      3,
+      "IMAGE"
+    ],
+    [
+      99,
+      46,
+      2,
+      63,
+      4,
+      "VAE"
+    ],
+    [
+      100,
+      63,
+      0,
+      49,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      101,
+      63,
+      1,
+      49,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      102,
+      13,
+      0,
+      63,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      103,
+      42,
+      0,
+      63,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      106,
+      52,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      54,
+      1,
+      66,
+      0,
+      "INT"
+    ],
+    [
+      108,
+      54,
+      2,
+      66,
+      1,
+      "INT"
+    ],
+    [
+      109,
+      66,
+      0,
+      49,
+      3,
+      "LATENT"
+    ],
+    [
+      115,
+      56,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Load image",
+      "bounding": [
+        -250,
+        2800,
+        300,
+        879.5999755859375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Preprocessor",
+      "bounding": [
+        79.63893127441406,
+        2801.281494140625,
+        280,
+        870
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Apply ControlNet",
+      "bounding": [
+        440,
+        1990,
+        588.00146484375,
+        269.6000061035156
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9229599817706504,
+      "offset": [
+        873.1499988525611,
+        -1988.6409197860662
+      ]
+    },
+    "frontendVersion": "1.25.11",
+    "node_versions": {
+      "efficiency-nodes-comfyui": "3ead4afd120833f3bffdefeca0d6545df8051798",
+      "Comfy_KepListStuff": "97320545f9d40bc5c3f63c614c37fcbe88a7dc3d",
+      "ComfyUI-Inspire-Pack": "962c3fbda0f6e325792e32bac83af33f01b2519a",
+      "ComfyUI-GGUF": "5875c52f59baca3a9372d68c43a3775e21846fe0",
+      "comfy-core": "0.3.13",
+      "rgthree-comfy": "5d771b8b56a343c24a26e8cea1f0c87c3d58102f"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": []
+  },
+  "version": 0.4
+}

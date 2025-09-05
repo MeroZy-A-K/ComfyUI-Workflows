@@ -1,0 +1,876 @@
+{
+  "id": "049fe7a1-2f05-4e0a-be74-caaf5c5e8180",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "MarkdownNote",
+      "pos": [
+        2210,
+        3070
+      ],
+      "size": [
+        311.29864501953125,
+        88
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ✅ Output\n\nSave image in ComfyUI/Output/ (folder)."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 3,
+      "type": "LoraLoader",
+      "pos": [
+        479.7795104980469,
+        3364.630615234375
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "lwmirXL-V1.0fp16.safetensors",
+        1.0000000000000002,
+        1.0000000000000002
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MarkdownNote",
+      "pos": [
+        469.7795104980469,
+        2964.630615234375
+      ],
+      "size": [
+        310,
+        194.41612243652344
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🧩 Model Loaders  \n\nLoad and use your favorite model and clip.  \n\n🔹 **Checkpoint** : The main model file (like `.safetensors` or `.ckpt`) that defines the style and knowledge of your AI.  \n\n🔹 **Clip** : A text encoder that translates your written prompt into a form the model understands.  \n\n🔹 **VAE (Variational Autoencoder)** : The tool that converts an image into its compressed **latent code** (for the model to work with), and then reverses it back into a final image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 5,
+      "type": "MarkdownNote",
+      "pos": [
+        849.779541015625,
+        3004.630615234375
+      ],
+      "size": [
+        318.70135498046875,
+        141.56045532226562
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 📝 Inputs\n\nYour prompt goes here.  \n\n🔹 **Prompt** : The text you write to describe the image you want.  \n\n🔹 **Clip** : Translates your prompt into a **latent code** that the model can understand and use to generate the image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 9,
+      "type": "CLIPTextEncode",
+      "pos": [
+        849.779541015625,
+        3374.630615234375
+      ],
+      "size": [
+        320,
+        90
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 19,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        520,
+        2690
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "MarkdownNote",
+      "pos": [
+        1190,
+        2780
+      ],
+      "size": [
+        1000,
+        370.25836181640625
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ⚙️ Config & Processing  \n\nConfiguration settings for sampling.  \n\n🔹 **Load Image** : Brings an external image into the workflow.  \n- **Image Path** : Select the image file you want to load.  \n\n🔹 **VAE Encode** : Converts the loaded image into latent space so it can be processed.  \n- **Image** : Connect from Load Image.  \n- **VAE** : The Variational Autoencoder used for encoding the image.  \n\n🔹 **K Sampler** : The core sampling process — it transforms latent noise into a structured image.  \n- **Model** : Connect your Checkpoint (the main model).  \n- **Positive Prompt** : Encoded text from CLIP with what you *want* to see.  \n- **Negative Prompt** : Encoded text from CLIP with what you *don’t* want.  \n- **Latent Image** : Connect from VAE Encode.  \n- **Seed** : Controls randomness (same seed = repeatable results).  \n- **Steps** : Number of iterations (more steps = higher quality but slower) **30 to 45 steps is fine**.  \n- **CFG (Classifier-Free Guidance)** : Strength of prompt influence (higher = follow prompt more strictly) **7–8 = normal**.  \n- **Sampler Method** : Algorithm used for sampling (Euler, DPM++, etc.) – does not drastically affect results.  \n\n🔹 **VAE Decode** : Converts the processed latent back into a final image.  \n- **Samples** : The latent output from K Sampler.  \n- **VAE** : The Variational Autoencoder (defines how latents are converted back into pixels).  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "SaveImage",
+      "pos": [
+        2210,
+        3220
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        469.7795104980469,
+        3204.630615234375
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "realvisxlV50_v50Bakedvae.safetensors"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "IPAdapterModelLoader",
+      "pos": [
+        520,
+        2580
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IPADAPTER",
+          "type": "IPADAPTER",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "2.0.0",
+        "Node name for S&R": "IPAdapterModelLoader"
+      },
+      "widgets_values": [
+        "ip-adapter-plus_sdxl_vit-h.safetensors"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "pos": [
+        849.779541015625,
+        3204.630615234375
+      ],
+      "size": [
+        320.9094543457031,
+        119.13298797607422
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "modern architecture building, glass steel, cityscape, street view,morning light, hdr, 8k, sharp detail, archidaily\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 12,
+      "type": "KSampler",
+      "pos": [
+        1540,
+        3210
+      ],
+      "size": [
+        360,
+        480
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 25
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 18
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        339757049482253,
+        "randomize",
+        20,
+        7,
+        "dpmpp_2m_sde",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        1960,
+        3210
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 16
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1192.875732421875,
+        3207.31591796875
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        520,
+        2200
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00021_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "LoraLoader",
+      "pos": [
+        472.8991394042969,
+        3539.981689453125
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            26
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            4,
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "dAIversityLoRASDXL-PhotoSemiReal.safetensors",
+        0.7500000000000001,
+        0.7500000000000001
+      ]
+    },
+    {
+      "id": 21,
+      "type": "MarkdownNote",
+      "pos": [
+        514.2215576171875,
+        1760
+      ],
+      "size": [
+        610,
+        340
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🎨 IP-Adapter  \n\nIP-Adapter is used to transfer **style** or **composition** from a reference image into your generation.  \n\n🔹 **IP-Adapter Model Loader** : Loads the IP-Adapter model.  \n\n🔹 **Load CLIP Vision** : Loads the CLIP Vision encoder to analyze your reference image.  \n\n🔹 **IP-Adapter Advanced** : Connects the pieces together.  \n- **Model** : Your checkpoint (main model).  \n- **IP-Adapter** : From the IP-Adapter Model Loader.  \n- **Image** : The reference image you want to guide with.  \n- **CLIP Vision** : From Load CLIP Vision node.  \n\n**Settings:**  \n- **Weight (0–1)** : How strongly the reference image influences the result (**0.5–0.7 = balanced**).  \n- **Weight Type** :  \n  - *Style Transfer* → Focuses on colors, textures, artistic style.  \n  - *Composition* → Keeps layout, shapes, structure from the reference.  \n- **Start At / End At** : Define when during the diffusion process the IP-Adapter effect is applied.  \n  - Example: `Start 0, End 1` = effect applied the whole process.  \n  - Lower ranges = subtle influence, higher ranges = stronger adaptation.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 16,
+      "type": "IPAdapterAdvanced",
+      "pos": [
+        847.8872680664062,
+        2194.05322265625
+      ],
+      "size": [
+        270,
+        278
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 26
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 21
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 23
+        },
+        {
+          "name": "image_negative",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "attn_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "clip_vision",
+          "shape": 7,
+          "type": "CLIP_VISION",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ipadapter_plus",
+        "ver": "2.0.0",
+        "Node name for S&R": "IPAdapterAdvanced"
+      },
+      "widgets_values": [
+        1,
+        "style transfer",
+        "concat",
+        0,
+        1,
+        "V only"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      13,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      6,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      6,
+      1,
+      3,
+      1,
+      "CLIP"
+    ],
+    [
+      4,
+      11,
+      1,
+      8,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      11,
+      1,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      10,
+      3,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      3,
+      1,
+      11,
+      1,
+      "CLIP"
+    ],
+    [
+      15,
+      15,
+      0,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      16,
+      12,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      17,
+      6,
+      2,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      18,
+      8,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      19,
+      9,
+      0,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      18,
+      0,
+      16,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      22,
+      19,
+      0,
+      16,
+      5,
+      "CLIP_VISION"
+    ],
+    [
+      23,
+      20,
+      0,
+      16,
+      2,
+      "IMAGE"
+    ],
+    [
+      25,
+      16,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      26,
+      11,
+      0,
+      16,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "IPAdapter",
+      "bounding": [
+        510,
+        2120.453125,
+        617.88720703125,
+        637.5467529296875
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9229599817706492,
+      "offset": [
+        -77.90387834400292,
+        -2025.360509749212
+      ]
+    },
+    "frontendVersion": "1.25.11"
+  },
+  "version": 0.4
+}
