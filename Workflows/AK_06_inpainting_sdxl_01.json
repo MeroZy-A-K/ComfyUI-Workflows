@@ -1,0 +1,711 @@
+{
+  "id": "749a42cc-b71c-4c37-8bcf-6905038d7158",
+  "revision": 0,
+  "last_node_id": 58,
+  "last_link_id": 101,
+  "nodes": [
+    {
+      "id": 21,
+      "type": "VAEDecode",
+      "pos": [
+        1247.6728515625,
+        2037.6265869140625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 73
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        1510,
+        2040
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        90,
+        2200
+      ],
+      "size": [
+        320,
+        90
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 98
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            52,
+            71
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 37,
+      "type": "MarkdownNote",
+      "pos": [
+        90,
+        1828.4395751953125
+      ],
+      "size": [
+        318.70135498046875,
+        141.56045532226562
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 📝 Inputs\n\nYour prompt goes here.  \n\n🔹 **Prompt** : The text you write to describe the image you want.  \n\n🔹 **Clip** : Translates your prompt into a **latent code** that the model can understand and use to generate the image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 36,
+      "type": "MarkdownNote",
+      "pos": [
+        -290,
+        1785.5838623046875
+      ],
+      "size": [
+        310,
+        194.41612243652344
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🧩 Model Loaders  \n\nLoad and use your favorite model and clip.  \n\n🔹 **Checkpoint** : The main model file (like `.safetensors` or `.ckpt`) that defines the style and knowledge of your AI.  \n\n🔹 **Clip** : A text encoder that translates your written prompt into a form the model understands.  \n\n🔹 **VAE (Variational Autoencoder)** : The tool that converts an image into its compressed **latent code** (for the model to work with), and then reverses it back into a final image.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 40,
+      "type": "MarkdownNote",
+      "pos": [
+        1510,
+        1892
+      ],
+      "size": [
+        311.29864501953125,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ✅ Output\n\nSave image in ComfyUI/Output/ (folder)."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 56,
+      "type": "VAEEncodeForInpaint",
+      "pos": [
+        470.77825927734375,
+        2784.287841796875
+      ],
+      "size": [
+        272.4048767089844,
+        98
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 90
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 92
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "VAEEncodeForInpaint"
+      },
+      "widgets_values": [
+        6
+      ]
+    },
+    {
+      "id": 49,
+      "type": "KSampler",
+      "pos": [
+        860,
+        2030
+      ],
+      "size": [
+        360,
+        480
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 96
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 70
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 71
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        750821541758459,
+        "randomize",
+        30,
+        7,
+        "dpmpp_2m_sde",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        90,
+        2030
+      ],
+      "size": [
+        320.9094543457031,
+        119.13298797607422
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 97
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            66,
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "river, reflections"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 38,
+      "type": "MarkdownNote",
+      "pos": [
+        470,
+        1513.880126953125
+      ],
+      "size": [
+        1000,
+        456.1199645996094
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## ⚙️ Config & Processing  \n\nConfiguration settings for sampling.  \n\n🔹 **Load Image** : Brings an external image into the workflow.  \n- **Image Path** : Select the image file you want to load.  \n\n🔹 **VAE Encode (for Inpainting)** : Converts the image into latent space, while applying the mask to define the repaint area.  \n- **Pixels** : The RGB image.  \n- **VAE** : The Variational Autoencoder used for encoding.  \n- **Mask** : The black/white mask where **black = keep** and **white= repaint**.  \n- **Grow Mask By (px)** : Expands the mask edges to prevent seams.  \n  - **Recommended**: 4–8 px (small gap fix),  \n  - Higher values = repaint bleeds further into the original image.  \n\n🔹 **K Sampler** : The core sampling process — it transforms latent noise into a structured image.  \n- **Model** : Connect your Checkpoint (the main model).  \n- **Positive Prompt** : Encoded text from CLIP with what you *want* to see.  \n- **Negative Prompt** : Encoded text from CLIP with what you *don’t* want.  \n- **Latent Image** : Connect from **VAE Encode (for Inpainting)**.  \n- **Seed** : Controls randomness (same seed = repeatable results).  \n- **Steps** : Number of iterations.  \n  - **Recommended**: 30–45 steps.  \n- **CFG (Classifier-Free Guidance)** : Prompt adherence strength.  \n  - **Recommended**: 7–8 (balanced).  \n- **Sampler Method** : Algorithm used for sampling (Euler, DPM++, etc.).  \n\n🔹 **VAE Decode** : Converts the processed latent back into a final image.  \n- **Samples** : The latent output from K Sampler.  \n- **VAE** : The same Variational Autoencoder (decodes latents back into pixels).  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 54,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        468.9267272949219,
+        2399.6591796875
+      ],
+      "size": [
+        270,
+        336
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 87
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            90
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            91,
+            101
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.1.4",
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        "<tr><td>Output: </td><td><b>1</b> x <b>666</b> x <b>1024 | 7.80MB</b></td></tr>"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "MaskPreview",
+      "pos": [
+        471.5926208496094,
+        2924.639404296875
+      ],
+      "size": [
+        271.4240417480469,
+        258
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 101
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57",
+        "Node name for S&R": "MaskPreview"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 52,
+      "type": "LoadImage",
+      "pos": [
+        469.47357177734375,
+        2028.33544921875
+      ],
+      "size": [
+        274.080078125,
+        314.0001220703125
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            87
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-painted-masked-11720255.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -289.5721130371094,
+        2032.309814453125
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            96
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            97,
+            98
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            69,
+            92
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "realisticVisionV60B1_v60B1InpaintingVAE.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      25,
+      21,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      46,
+      2,
+      21,
+      1,
+      "VAE"
+    ],
+    [
+      70,
+      13,
+      0,
+      49,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      71,
+      42,
+      0,
+      49,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      73,
+      49,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      87,
+      52,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      90,
+      54,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      91,
+      54,
+      3,
+      56,
+      2,
+      "MASK"
+    ],
+    [
+      92,
+      46,
+      2,
+      56,
+      1,
+      "VAE"
+    ],
+    [
+      96,
+      46,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      97,
+      46,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      98,
+      46,
+      1,
+      42,
+      0,
+      "CLIP"
+    ],
+    [
+      99,
+      56,
+      0,
+      49,
+      3,
+      "LATENT"
+    ],
+    [
+      100,
+      52,
+      1,
+      54,
+      1,
+      "MASK"
+    ],
+    [
+      101,
+      54,
+      3,
+      58,
+      0,
+      "MASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8470291155625942,
+      "offset": [
+        528.380627071301,
+        -1736.6042805812526
+      ]
+    },
+    "frontendVersion": "1.25.11",
+    "node_versions": {
+      "efficiency-nodes-comfyui": "3ead4afd120833f3bffdefeca0d6545df8051798",
+      "Comfy_KepListStuff": "97320545f9d40bc5c3f63c614c37fcbe88a7dc3d",
+      "ComfyUI-Inspire-Pack": "962c3fbda0f6e325792e32bac83af33f01b2519a",
+      "ComfyUI-GGUF": "5875c52f59baca3a9372d68c43a3775e21846fe0",
+      "comfy-core": "0.3.13",
+      "rgthree-comfy": "5d771b8b56a343c24a26e8cea1f0c87c3d58102f"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": []
+  },
+  "version": 0.4
+}
