@@ -52,6 +52,7 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | CLIP ViT-H/14 - LAION-2B   | `ComfyUI\models\clip_vision`       | [Download](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/resolve/main/open_clip_model.safetensors?download=true)<br>`CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors` |
 | lwmirXL-V1.0fp16 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/128403?type=Model&format=SafeTensor)<br>`lwmirXL-V1.0fp16.safetensors` |
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [Download](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true)<br>`dAIversityLoRASDXL-PhotoSemiReal.safetensors` |
+| Realistic Vision V6.0 B1 (Inpainting)   | `ComfyUI\models\checkpoints`       | [Download](https://civitai.com/api/download/models/245627?type=Model&format=SafeTensor&size=pruned&fp=fp16)<br>`realisticVisionV60B1_v60B1InpaintingVAE.safetensors` |
 
 ## 🖼️ UPSCALER - You have to choose only one of them
 
