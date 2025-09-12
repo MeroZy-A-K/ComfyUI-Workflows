@@ -38,7 +38,7 @@ Once done, restart ComfyUI – you’ll see the **Manager** tab appear.
 
 ---
 
-## 📦 Models  
+## 📦 Models - SDXL 
 
 Below are some recommended models to use with these workflows.  
 Download the model file and place it in the correct folder inside your **ComfyUI** directory.  
@@ -53,6 +53,21 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | lwmirXL-V1.0fp16 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/128403?type=Model&format=SafeTensor)<br>`lwmirXL-V1.0fp16.safetensors` |
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [Download](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true)<br>`dAIversityLoRASDXL-PhotoSemiReal.safetensors` |
 | Realistic Vision V6.0 B1 (Inpainting)   | `ComfyUI\models\checkpoints`       | [Download](https://civitai.com/api/download/models/245627?type=Model&format=SafeTensor&size=pruned&fp=fp16)<br>`realisticVisionV60B1_v60B1InpaintingVAE.safetensors` |
+
+## 📦 Models - Flux.1 DEV 
+
+Below are some recommended models to use with these workflows.  
+Download the model file and place it in the correct folder inside your **ComfyUI** directory.  
+
+| Model            | Installation Path                  | Download |
+|------------------|------------------------------------|----------|
+| Flux.1 Dev FP8   | `ComfyUI\models\unet`       | [Download](https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors?download=true)<br>`flux1-dev-fp8.safetensors` |
+| clip_l (CLIP)   | `ComfyUI\models\clip`       | [Download](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true)<br>`clip_l.safetensors` |
+| t5xxl_fp8_e4m3fn (CLIP)   | `ComfyUI\models\clip`       | [Download](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true)<br>`t5xxl_fp8_e4m3fn.safetensors` |
+| ae (VAE)   | `ComfyUI\models\vae`       | [Download](https://huggingface.co/lovis93/testllm/resolve/main/ae.safetensors?download=true)<br>`ae.safetensors` |
+| FLUX Arch Realism V2 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/794101?type=Model&format=SafeTensor)<br>`flux-arch-realism-lora_v2.safetensors` |
+| design input - archviz (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/1386898?type=Model&format=SafeTensor)<br>`design-input_archviz_v01.safetensors` |
+| FLUX.1-Turbo-Alpha (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/964759?type=Model&format=SafeTensor)<br>`FLUX.1-Turbo-Alpha.safetensors` |
 
 ## 🖼️ UPSCALER - You have to choose only one of them
 
