@@ -54,7 +54,7 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | dAIversityLoRASDXL-PhotoSemiReal (LoRA)   | `ComfyUI\models\loras`       | [Download](https://huggingface.co/mnemic/dAIversityLoRASDXL-PhotoSemiReal-SDXL-LoRA/resolve/main/dAIversityLoRASDXL-PhotoSemiReal.safetensors?download=true)<br>`dAIversityLoRASDXL-PhotoSemiReal.safetensors` |
 | Realistic Vision V6.0 B1 (Inpainting)   | `ComfyUI\models\checkpoints`       | [Download](https://civitai.com/api/download/models/245627?type=Model&format=SafeTensor&size=pruned&fp=fp16)<br>`realisticVisionV60B1_v60B1InpaintingVAE.safetensors` |
 
-## 📦 Models - Flux.1 DEV 
+## 🌆 Models - Flux.1 DEV 
 
 Below are some recommended models to use with these workflows.  
 Download the model file and place it in the correct folder inside your **ComfyUI** directory.  
