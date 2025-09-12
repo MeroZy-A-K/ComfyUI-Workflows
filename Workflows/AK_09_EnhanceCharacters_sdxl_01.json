@@ -2,7 +2,7 @@
   "id": "59ef736b-35ed-403b-a962-f97ecc2066aa",
   "revision": 0,
   "last_node_id": 21,
-  "last_link_id": 28,
+  "last_link_id": 29,
   "nodes": [
     {
       "id": 17,
@@ -125,56 +125,6 @@
       "widgets_values": []
     },
     {
-      "id": 11,
-      "type": "Image Comparer (rgthree)",
-      "pos": [
-        3597.072509765625,
-        -509.61865234375
-      ],
-      "size": [
-        820,
-        580
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "image_a",
-          "type": "IMAGE",
-          "link": 17
-        },
-        {
-          "dir": 3,
-          "name": "image_b",
-          "type": "IMAGE",
-          "link": 18
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "944d5353a1b0a668f40844018c3dc956b95a67d7",
-        "comparer_mode": "Slide",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        [
-          {
-            "name": "A",
-            "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_npqcb_00003_.png&type=temp&subfolder=&rand=0.8920495516933219"
-          },
-          {
-            "name": "B",
-            "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_npqcb_00004_.png&type=temp&subfolder=&rand=0.9742737305377231"
-          }
-        ]
-      ]
-    },
-    {
       "id": 1,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -228,138 +178,6 @@
       "widgets_values": [
         "realvisxlV50_v50Bakedvae.safetensors"
       ]
-    },
-    {
-      "id": 7,
-      "type": "LoadImage",
-      "pos": [
-        1480,
-        -520
-      ],
-      "size": [
-        274.080078125,
-        314
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            18,
-            22
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "ComfyUI_00098_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 16,
-      "type": "ImageResizeKJv2",
-      "pos": [
-        1790,
-        -520
-      ],
-      "size": [
-        270,
-        336
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 22
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            23
-          ]
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "1.1.4",
-        "Node name for S&R": "ImageResizeKJv2"
-      },
-      "widgets_values": [
-        2048,
-        2048,
-        "nearest-exact",
-        "resize",
-        "0, 0, 0",
-        "center",
-        2,
-        "cpu",
-        "<tr><td>Output: </td><td><b>1</b> x <b>2048</b> x <b>1632 | 38.25MB</b></td></tr>"
-      ]
-    },
-    {
-      "id": 21,
-      "type": "MarkdownNote",
-      "pos": [
-        2949.3134765625,
-        -887.7060546875
-      ],
-      "size": [
-        642.78515625,
-        311.27410888671875
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "### **FaceDetailer**\n\nThe **FaceDetailer** node enhances facial features with high precision, making it useful for portraits, characters, and digital art. It detects faces, isolates them, and refines details for sharper, more realistic results.\n\n---\n\n### **Inputs & Recommended Values**\n\n- **image** → Input image to enhance *(use good quality)*  \n- **model** → Face enhancement model *(sdxl of flux model recommended)*  \n- **clip** → Extra refinement *(default is fine)*  \n- **vae** → Encoding/decoding *(default is fine)*  \n- **guide_size** → Face scale *(1024  : 1536 recommended)*  \n- **guide_size_for_bbox**  \n- **max_size** → Max image size *(1024:2048)*  \n- **seed** → Control randomness *(fix seed for reproducibility)*  \n- **steps** → Refinement iterations *(20–30)*  \n- **cfg** → Guidance strength *(7–9)*  \n- **sampler_name** → Sampling method *(Euler / DPM++ 2M Karras)*  \n- **scheduler** → Step scheduling *(default works well)*  \n- **positive** → Prompts *(“people, man, sharp, detailed, natural skin”)*  \n- **negative** → Prompts *(“blurry, extra eyes, deformed”)*  \n- **denoise** → Noise cleanup *(0.3–0.6, up to 0.7 if needed)*  \n- **feather** → Edge blending *(5–30)*  \n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
     },
     {
       "id": 5,
@@ -418,7 +236,7 @@
         78
       ],
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -456,7 +274,7 @@
         82
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -477,51 +295,6 @@
         "sam_vit_b_01ec64.pth",
         "AUTO"
       ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        2540,
-        -440
-      ],
-      "size": [
-        317.35113525390625,
-        88
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            6
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "CLIPTextEncode",
-        "widget_ue_connectable": {
-          "text": true
-        }
-      },
-      "widgets_values": [
-        "walking man,face, detailed, 8k uhd,high quailty"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 6,
@@ -686,7 +459,7 @@
         1536,
         true,
         2048,
-        638212471568976,
+        133015867951636,
         "randomize",
         30,
         1,
@@ -713,6 +486,233 @@
         false,
         false
       ]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2540,
+        -440
+      ],
+      "size": [
+        317.35113525390625,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "walking people,face, detailed, 8k uhd,high quailty"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 11,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        3597.072509765625,
+        -509.61865234375
+      ],
+      "size": [
+        820,
+        580
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "dir": 3,
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "944d5353a1b0a668f40844018c3dc956b95a67d7",
+        "comparer_mode": "Slide",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_afpax_00003_.png&type=temp&subfolder=&rand=0.6749494811256006"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_afpax_00004_.png&type=temp&subfolder=&rand=0.02049430822208287"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        1480,
+        -520
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "test2.png",
+        "image"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        1790,
+        -520
+      ],
+      "size": [
+        270,
+        336
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23,
+            29
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.1.4",
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        2048,
+        2048,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        "<tr><td>Output: </td><td><b>1</b> x <b>2048</b> x <b>1152 | 27.00MB</b></td></tr>"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "MarkdownNote",
+      "pos": [
+        2950,
+        -920
+      ],
+      "size": [
+        620,
+        340
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "### **FaceDetailer**\n\nThe **FaceDetailer** node enhances facial features with high precision, making it useful for portraits, characters, and digital art. It detects faces, isolates them, and refines details for sharper, more realistic results.\n\n---\n\n### **Inputs & Recommended Values**\n\n- **image** → Input image to enhance *(use good quality)*  \n- **model** → Face enhancement model *(sdxl of flux model recommended)*  \n- **clip** → Extra refinement *(default is fine)*  \n- **vae** → Encoding/decoding *(default is fine)*  \n- **guide_size** → Face scale *(1024  : 1536 recommended)*  \n- **guide_size_for_bbox**  \n- **max_size** → Max image size *(1024:2048)*  \n- **seed** → Control randomness *(fix seed for reproducibility)*  \n- **steps** → Refinement iterations *(20–30)*  \n- **cfg** → Guidance strength *(7–9)*  \n- **sampler_name** → Sampling method *(Euler / DPM++ 2M Karras)*  \n- **scheduler** → Step scheduling *(default works well)*  \n- **positive** → Prompts *(“people, man, sharp, detailed, natural skin”)*  \n- **negative** → Prompts *(“blurry, extra eyes, deformed”)*  \n- **denoise** → Noise cleanup *(0.3–0.6, up to 0.7 if needed)*  \n- **feather** → Edge blending *(5–30)*  \n- **bbox crop factor** → bbox image zoomed in. 1 for character edges *best(1.2–2.5)*  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
     }
   ],
   "links": [
@@ -797,14 +797,6 @@
       "IMAGE"
     ],
     [
-      18,
-      7,
-      0,
-      11,
-      1,
-      "IMAGE"
-    ],
-    [
       20,
       14,
       0,
@@ -851,16 +843,24 @@
       18,
       0,
       "IMAGE"
+    ],
+    [
+      29,
+      16,
+      0,
+      11,
+      1,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.658845000000017,
+      "scale": 0.5209868481924425,
       "offset": [
-        -1353.0707954381105,
-        1159.2075964380965
+        -2588.2313771186678,
+        1066.4995264699014
       ]
     },
     "frontendVersion": "1.26.11",
