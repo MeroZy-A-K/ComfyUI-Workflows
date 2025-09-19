@@ -68,6 +68,9 @@ Download the model file and place it in the correct folder inside your **ComfyUI
 | FLUX Arch Realism V2 (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/794101?type=Model&format=SafeTensor)<br>`flux-arch-realism-lora_v2.safetensors` |
 | design input - archviz (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/1386898?type=Model&format=SafeTensor)<br>`design-input_archviz_v01.safetensors` |
 | FLUX.1-Turbo-Alpha (LoRA)   | `ComfyUI\models\loras`       | [Download](https://civitai.com/api/download/models/964759?type=Model&format=SafeTensor)<br>`FLUX.1-Turbo-Alpha.safetensors` |
+| FLUX.1-dev-ControlNet-Union-Pro-2.0   | `ComfyUI\models\controlnet`       | [Download](https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0/resolve/main/diffusion_pytorch_model.safetensors?download=true)<br>`FLUX.1-dev-ControlNet-Union-Pro-2.0.safetensors` |
+| FLUX.1 Redux Dev  | `ComfyUI\models\style_models`       | [Download](https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev/resolve/main/flux1-redux-dev.safetensors?download=true)<br>`flux1-redux-dev.safetensors` |
+| sigclip_vision_384 (CLIP VISION)   | `ComfyUI\models\clip_vision`       | [Download](https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors?download=true)<br>`sigclip_vision_patch14_384.safetensors` |
 
 ## 🖼️ UPSCALER - You have to choose only one of them
 
