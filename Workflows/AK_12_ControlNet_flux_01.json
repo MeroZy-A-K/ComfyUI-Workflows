@@ -556,7 +556,7 @@
         258
       ],
       "flags": {},
-      "order": 11,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -579,88 +579,6 @@
         "ver": "0.3.57"
       },
       "widgets_values": []
-    },
-    {
-      "id": 61,
-      "type": "ImageResizeKJv2",
-      "pos": [
-        -660.08447265625,
-        1560.21533203125
-      ],
-      "size": [
-        270,
-        336
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 97
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "shape": 7,
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            99,
-            104
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            101
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            102
-          ],
-          "slot_index": 2
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "ImageResizeKJv2",
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "1.1.4"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        "nearest-exact",
-        "resize",
-        "0, 0, 0",
-        "center",
-        2,
-        "cpu"
-      ]
     },
     {
       "id": 67,
@@ -800,7 +718,7 @@
         58
       ],
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -834,24 +752,244 @@
       ]
     },
     {
-      "id": 66,
-      "type": "AIO_Preprocessor",
+      "id": 72,
+      "type": "SetUnionControlNetType",
       "pos": [
-        -50,
-        1190
+        480,
+        400
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            113
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "SetUnionControlNetType"
+      },
+      "widgets_values": [
+        "depth"
+      ]
+    },
+    {
+      "id": 74,
+      "type": "PreviewImage",
+      "pos": [
+        -335.8424377441406,
+        1315.8355712890625
       ],
       "size": [
         270,
-        82
+        320
       ],
       "flags": {},
-      "order": 17,
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 123
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 68,
+      "type": "ControlNetLoader",
+      "pos": [
+        477.59051513671875,
+        175.4903106689453
+      ],
+      "size": [
+        328.2350769042969,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            116,
+            119
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "ControlNetLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.57"
+      },
+      "widgets_values": [
+        "FLUX.1-dev-ControlNet-Union-Pro-2.0.safetensors"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "MarkdownNote",
+      "pos": [
+        470,
+        -158.41688537597656
+      ],
+      "size": [
+        710,
+        210
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## 🎛 ControlNet – Apply  \n\nAfter preprocessing, ControlNet is applied to guide image generation.  \n\n🔹 **Load ControlNet** : Loads the ControlNet model you want to use.  \n- Example: **ControlNet UNION Pro2 FLUX** (recommended for FLUX workflows).  \n\n🔹 **Apply ControlNet** : Connects your prompt and preprocessed image to the model.  \n- **Positive / Negative** : Prompts from CLIP (what you *want* and *don’t want*).  \n- **ControlNet** : Connected from **Load ControlNet**.  \n- **Image** : The preprocessed image (from Canny, LineArt, Depth, Segmentation, etc.).  \n- **VAE** : The Variational Autoencoder of your main model (to keep outputs consistent).  \n- **Output** : New **Positive / Negative** embeddings with ControlNet guidance applied.  \n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 31,
+      "type": "KSampler",
+      "pos": [
+        1210,
+        120
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 79
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 117
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 118
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            52
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "KSampler",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59"
+      },
+      "widgets_values": [
+        723700945546843,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 61,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        -660.08447265625,
+        1560.21533203125
+      ],
+      "size": [
+        270,
+        336
+      ],
+      "flags": {},
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 104
+          "link": 97
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "shape": 7,
+          "link": null
         }
       ],
       "outputs": [
@@ -859,63 +997,33 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            105,
-            120
+            99,
+            104
           ],
           "slot_index": 0
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "AIO_Preprocessor",
-        "cnr_id": "comfyui_controlnet_aux",
-        "ver": "1.1.0"
-      },
-      "widgets_values": [
-        "DepthAnythingPreprocessor",
-        1024
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -10,
-        110
-      ],
-      "size": [
-        440,
-        190
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 22,
-      "mode": 0,
-      "inputs": [
+        },
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 83
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "width",
+          "type": "INT",
           "links": [
-            56
+            101
           ],
-          "slot_index": 0
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            102
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
         }
       ],
-      "title": "CLIP Text Encode (Positive Prompt)",
       "properties": {
         "enableTabs": false,
         "tabWidth": 65,
@@ -924,15 +1032,20 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
-        "Node name for S&R": "CLIPTextEncode",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.59"
+        "Node name for S&R": "ImageResizeKJv2",
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.1.4"
       },
       "widgets_values": [
-        "A modern residential complex featuring a row of three-story townhouses with a minimalist design, situated in a suburban setting. The facade of the buildings showcases a combination of white stucco walls and sections of light gray stone cladding, with vertical black accents that create a sleek, contemporary look. Each townhouse includes large, vertically oriented windows with black frames, providing a sense of openness and allowing natural light to flood the interiors. The roofs have private terraces with planters, adding greenery and enhancing the outdoor living space.\n\nThe ground level of each unit features a shaded entrance with recessed areas, glass doors, and small trees planted in front, contributing to a welcoming atmosphere. A low, white perimeter wall with a hedge runs along the property, separating it from the street. The surrounding landscape is lush with palm trees and other greenery, evoking a warm, tropical ambiance. The setting sun casts a soft, warm light across the scene, creating long shadows and highlighting the textures of the materials.\n\nA motion blur effect is applied to several cars driving along the street, giving a sense of movement and liveliness to the otherwise tranquil environment. Stationary cars parked along the curb are sharp and clear, contrasting with the blurred motion of the moving vehicles. The street features modern bollard lights, and the paved sidewalk in the foreground is lined with neatly trimmed grass, enhancing the clean, orderly aesthetic of the neighborhood."
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
+        1536,
+        1536,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ]
     },
     {
       "id": 69,
@@ -1007,9 +1120,107 @@
         "ver": "0.3.57"
       },
       "widgets_values": [
-        0.7000000000000001,
+        0.4,
         0,
-        0.7000000000000001
+        0.4
+      ]
+    },
+    {
+      "id": 63,
+      "type": "AIO_Preprocessor",
+      "pos": [
+        -340.4453430175781,
+        1185.096923828125
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            121,
+            123
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "AIO_Preprocessor",
+        "cnr_id": "comfyui_controlnet_aux",
+        "ver": "1.1.0"
+      },
+      "widgets_values": [
+        "LineArtPreprocessor",
+        1024
+      ]
+    },
+    {
+      "id": 66,
+      "type": "AIO_Preprocessor",
+      "pos": [
+        -50,
+        1190
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 104
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            105,
+            120
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "AIO_Preprocessor",
+        "cnr_id": "comfyui_controlnet_aux",
+        "ver": "1.1.0"
+      },
+      "widgets_values": [
+        "DepthAnythingPreprocessor",
+        1024
       ]
     },
     {
@@ -1087,8 +1298,60 @@
       "widgets_values": [
         0.7000000000000001,
         0,
-        1
+        0.7000000000000001
       ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -10,
+        110
+      ],
+      "size": [
+        440,
+        190
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            56
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.59"
+      },
+      "widgets_values": [
+        "A standalone modern villa made of concrete, surrounded by a lush forest background with integrated landscaping. Street view perspective, cinematic HDR lighting, ultra-detailed and hyper-sharp rendering, 8K resolution. Architectural photography style, elegant composition, minimal yet sophisticated, ArchDaily aesthetic."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     },
     {
       "id": 64,
@@ -1102,7 +1365,7 @@
         338
       ],
       "flags": {},
-      "order": 7,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1133,272 +1396,10 @@
         "ver": "0.3.44"
       },
       "widgets_values": [
-        "https://s3.prod.nordy.ai/media/raw/95bf93ec-cb6b-4da6-9733-e93e1296a09d.png",
+        "https://s3.prod.nordy.ai/media/raw/d634c0a7-4d73-41ad-a38b-06e647c399cb.png",
         "image",
         "image"
       ]
-    },
-    {
-      "id": 72,
-      "type": "SetUnionControlNetType",
-      "pos": [
-        480,
-        400
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "control_net",
-          "type": "CONTROL_NET",
-          "link": 116
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONTROL_NET",
-          "type": "CONTROL_NET",
-          "links": [
-            113
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "SetUnionControlNetType"
-      },
-      "widgets_values": [
-        "depth"
-      ]
-    },
-    {
-      "id": 31,
-      "type": "KSampler",
-      "pos": [
-        1210,
-        120
-      ],
-      "size": [
-        315,
-        474
-      ],
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 79
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 117
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 118
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 103
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            52
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "KSampler",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.59"
-      },
-      "widgets_values": [
-        791780907575369,
-        "randomize",
-        20,
-        1,
-        "euler",
-        "simple",
-        1
-      ]
-    },
-    {
-      "id": 63,
-      "type": "AIO_Preprocessor",
-      "pos": [
-        -340.4453430175781,
-        1185.096923828125
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 99
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            121,
-            123
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "AIO_Preprocessor",
-        "cnr_id": "comfyui_controlnet_aux",
-        "ver": "1.1.0"
-      },
-      "widgets_values": [
-        "LineArtPreprocessor",
-        1024
-      ]
-    },
-    {
-      "id": 74,
-      "type": "PreviewImage",
-      "pos": [
-        -335.8424377441406,
-        1315.8355712890625
-      ],
-      "size": [
-        270,
-        320
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 123
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 68,
-      "type": "ControlNetLoader",
-      "pos": [
-        477.59051513671875,
-        175.4903106689453
-      ],
-      "size": [
-        328.2350769042969,
-        58
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONTROL_NET",
-          "type": "CONTROL_NET",
-          "links": [
-            116,
-            119
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "ControlNetLoader",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.57"
-      },
-      "widgets_values": [
-        "FLUX.1-dev-ControlNet-Union-Pro-2.0.safetensors"
-      ]
-    },
-    {
-      "id": 73,
-      "type": "MarkdownNote",
-      "pos": [
-        470,
-        -158.41688537597656
-      ],
-      "size": [
-        710,
-        210
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 9,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "## 🎛 ControlNet – Apply  \n\nAfter preprocessing, ControlNet is applied to guide image generation.  \n\n🔹 **Load ControlNet** : Loads the ControlNet model you want to use.  \n- Example: **ControlNet UNION Pro2 FLUX** (recommended for FLUX workflows).  \n\n🔹 **Apply ControlNet** : Connects your prompt and preprocessed image to the model.  \n- **Positive / Negative** : Prompts from CLIP (what you *want* and *don’t want*).  \n- **ControlNet** : Connected from **Load ControlNet**.  \n- **Image** : The preprocessed image (from Canny, LineArt, Depth, Segmentation, etc.).  \n- **VAE** : The Variational Autoencoder of your main model (to keep outputs consistent).  \n- **Output** : New **Positive / Negative** embeddings with ControlNet guidance applied.  \n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
     }
   ],
   "links": [
@@ -1753,10 +1754,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8050483973012484,
+      "scale": 0.7513148009015777,
       "offset": [
-        -547.9381730798533,
-        -35.359491180537816
+        600.2482979389905,
+        -117.7417650556778
       ]
     },
     "frontendVersion": "1.26.11",
